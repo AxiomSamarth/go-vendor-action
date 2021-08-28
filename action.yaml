@@ -10,3 +10,5 @@ runs:
   steps: 
     - run: ${{ github.action_path }}/vendor.sh
       shell: bash
+      env:
+        INPUT_VARIABLE: ${{ inputs.variable }} 
