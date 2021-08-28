@@ -1,1 +1,1 @@
-echo ${{ inputs.variable }}
+echo $INPUT_VARIABLE
