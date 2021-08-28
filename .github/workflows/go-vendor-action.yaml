@@ -4,6 +4,8 @@ on: [push]
 jobs:
   update-projects:
     runs-on: ubuntu-latest
+    env:
+      USERNAME: ${{ secrets.USERNAME }}
     steps:
       - name: Print the input variable
         uses: AxiomSamarth/go-vendor-action@main

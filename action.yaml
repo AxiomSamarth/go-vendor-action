@@ -12,4 +12,3 @@ runs:
       shell: bash
       env:
         INPUT_VARIABLE: ${{ inputs.variable }} 
-        USERNAME: ${{ secrets.USERNAME }}
