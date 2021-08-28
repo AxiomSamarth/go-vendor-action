@@ -1,9 +1,12 @@
 # action.yaml
-name: "Custom Action for Go-Vendoring"
+name: "Custom Github Action for Go-Vendoring"
 description: "Clone the dependant project & have it revendored"
 inputs:
-  variable:
-    description: "The name of the dependant repository with user or owner."
+  destination_repo_owner:
+    description: "The name of the dependant repository's owner."
+    required: true
+  destination_repo_name:
+    description: "The name of the dependant repository which vendors project in current scope."
     required: true
 runs:
   using: "composite"
@@ -11,4 +14,5 @@ runs:
     - run: ${{ github.action_path }}/vendor.sh
       shell: bash
       env:
-        INPUT_VARIABLE: ${{ inputs.variable }} 
+        DEST_REPO_OWNER: ${{ inputs.destination_repo_owner }}
+        DEST_REPO_NAME: ${{ inputs.destination_repo_name }}
