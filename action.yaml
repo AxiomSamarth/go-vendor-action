@@ -1,0 +1,12 @@
+# action.yaml
+name: "Custom Action for Go-Vendoring"
+description: "Clone the dependant project & have it revendored"
+inputs:
+  variable:
+    description: "The name of the dependant repository with user or owner."
+    required: true
+runs:
+  using: "composite"
+  steps: 
+    - run: sh ./vendor.sh
+      shell: bash
