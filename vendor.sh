@@ -1,1 +1,1 @@
-echo $INPUT_VARIABLE
+echo "::The input variable is $INPUT_VARIABLE"
