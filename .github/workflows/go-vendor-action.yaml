@@ -1,0 +1,16 @@
+name: learn-github-actions
+on: [push]
+
+jobs:
+  update-projects:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print the input variable
+        uses: AxiomSamarth/go-vendor-action@main
+        with:
+          variable: Samarth Deyagond
+                    
+        
+
+
+          
