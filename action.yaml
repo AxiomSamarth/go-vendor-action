@@ -8,5 +8,5 @@ inputs:
 runs:
   using: "composite"
   steps: 
-    - run: sh ./vendor.sh
+    - run: ${{ github.action_path }}/vendor.sh
       shell: bash
