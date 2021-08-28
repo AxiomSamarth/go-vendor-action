@@ -2,7 +2,7 @@
 
 git clone https://github.com/$DEST_REPO_OWNER/$DEST_REPO_NAME.git
 cd $DEST_REPO_NAME
-git remote set-url origin https://.:$GITHUB_TOKEN@github.com/$DEST_REPO_OWNER/$DEST_REPO_NAME
+git remote set-url origin https://.:$GITHUB_PASSWORD@github.com/$DEST_REPO_OWNER/$DEST_REPO_NAME
 git checkout -b update-dependencies
 
 new_version=$(echo "github.com/$SRC_REPO_OWNER/$SRC_REPO_NAME" $(curl -H "Accept: application/vnd.github.v3+json" \
@@ -14,7 +14,7 @@ go mod tidy
 
 git add *
 git commit -m "Automated vendoring of $new_version release of $SRC_REPO_NAME"
-git push  --force --quiet https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$DEST_REPO_OWNER/$DEST_REPO_NAME update-dependencies:update-dependencies
+git push  --force --quiet https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/$DEST_REPO_OWNER/$DEST_REPO_NAME update-dependencies:update-dependencies
 hub pull-request --base main --head update-dependencies -F- <<< "Automated Vendoring of latest release of $SRC_REPO_NAME
 
 This is an automated PR by Teddy Winters to update the vendoring of `$SRC_REPO_NAME` in this project with the latest release.
